@@ -3,6 +3,7 @@ package taller;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class ChallengeTest {
 
@@ -43,6 +44,15 @@ public class ChallengeTest {
 		String[] expected = { "abiol", "squso", "dpxls", "kdjwo", "spwls", "zsoqu", "esldkqu" };
 		String[] actual = Challenge.splitString(str, split_number);
 		assertArrays(expected, actual);
+
+	}
+	
+	@Test
+	public void splitNumberGreaterThantStringSizeShouldReturnNull() {
+		String str = "abiolsqusodpxlskdjwospwlszsoquesldkqu"; // length 37
+		int split_number = 50;
+		String[] actual = Challenge.splitString(str, split_number);
+		assertNull(actual);
 
 	}
 
